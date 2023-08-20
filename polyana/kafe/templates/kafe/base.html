@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>кафе Лесная Поляна</title>
+    <meta name="description" content="Test">
+    <meta name="keywords" content="Test">
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:type" content="website" />
+	<meta property="og:title" content="Test" />
+    <meta property="og:description" content="Test" />
+	<meta property="og:url" content="Test" />
+    <meta name="yandex-verification" content="7507bf9029965e43" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Unna:400,700&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'kafe/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'kafe/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'kafe/css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'kafe/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'kafe/css/carousel.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'kafe/css/style.css' %}" type="text/css">
+
+</head>
+
+<body>
+
+<!-- Mobile menu Section  -->
+<div class="humberger__menu__overlay"></div>
+<div class="humberger__menu__wrapper">
+    <div class="humberger__menu__logo">
+        <a href="{% url 'home' %}"><img src="{% static 'kafe/images/humberger/humberger-logo.png' %}" alt=""></a>
+    </div>
+    <nav class="humberger__menu__nav mobile-menu">
+        <ul>
+            <li><a href="{% url 'home' %}">Главная</a></li>
+            <li class="dropdown"><a href="{% url 'menu' %}">Меню</a>
+                <ul class="dropdown__menu">
+                    {% for c in cats %}
+                    <li><a href="{{c.get_absolute_url}}">{{c.name}}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li><a href="{% url 'delivery' %}">Доставка</a></li>
+            <li><a href="{% url 'about' %}">О нас</a></li>
+            <li><a href="{% url 'contact' %}">Контакты</a></li>
+        </ul>
+    </nav>
+    <div id="mobile-menu-wrap"></div>
+    <div class="humberger__menu__about">
+        <div class="humberger__menu__title sidebar__item__title">
+            <h6>Мы в социальных сетях</h6>
+            <br><br>
+            <div class="humberger__menu__about__social sidebar__item__follow__links">
+                <a href="#"><i class="fa fa-vk"></i></a>
+            </div>
+
+        </div>
+
+        <h6>Мы рады приветствовать Вас на сайте<br> кафе "Лесная Поляна".</h6>
+        <p>Спасибо что Вы с нами!</p>
+    </div>
+</div>
+<!-- Mobile menu end -->
+
+<!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-1 col-6 order-md-1 order-1">
+                        <div class="header__humberger">
+                            <i class="fa fa-bars humberger__open"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-10 order-md-2 order-3">
+                        <nav class="header__menu">
+                            <ul>
+                                {% url 'home' as home %}
+                                {% url 'menu' as menu %}
+                                {% url 'delivery' as delivery %}
+                                {% url 'about' as about %}
+                                {% url 'contact' as contact %}
+                                {% url 'category' as category %}
+
+
+                                {% if request.path == home %}
+                                <li class="active"><a href="{{home}}">Главная</a></li>
+                                {% else %}
+                                <li><a href="{{home}}">Главная</a></li>
+                                {% endif %}
+
+                                {% if request.path == menu or category_selected %}
+                                <li class="dropdown active"><a>Меню</a>
+                                    <ul class="dropdown__menu">
+                                    <li><a href="{{menu}}">Все</a></li>
+
+                                        {% for c in cats %}
+                                        <li><a href="{{c.get_absolute_url}}">{{c.name}}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                                {% else %}
+                                <li class="dropdown"><a href="{{menu}}">Меню</a>
+                                    <ul class="dropdown__menu">
+                                        <li><a href="{{menu}}">Все</a></li>
+                                        {% for c in cats %}
+                                        <li><a href="{{c.get_absolute_url}}">{{c.name}}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                                {% endif %}
+
+
+                                {% if request.path == delivery %}
+                                <li class="active"><a href="{{delivery}}">Доставка</a></li>
+                                {% else %}
+                                <li><a href="{{delivery}}">Доставка</a></li>
+                                {% endif %}
+
+                                {% if request.path == about %}
+                                <li class="active"><a href="{{about}}">О нас</a></li>
+                                {% else %}
+                                <li><a href="{{about}}">О нас</a></li>
+                                {% endif %}
+
+                                {% if request.path == contact %}
+                                <li class="active"><a href="{{contact}}">Контакты</a></li>
+                                {% else %}
+                                <li><a href="{{contact}}">Контакты</a></li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-2 col-md-1 col-6 order-md-3 order-2">
+                        <div class="header__search">
+                            <a href="tel:+79120000000">
+                            <i class="fa fa-phone" aria-hidden="true" style="color: black"></i>
+                            </a>
+                        </div>
+
+
+                     </div>
+                    </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__btn">
+
+                        <a href="{% url 'contact' %}" class="primary-btn">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                             &nbsp&nbspTestText</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="header__logo">
+                        <a href="{% url 'home' %}"><img src='{% static "kafe/images/logo.png" %}' alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__social">
+                    <div field="tn_text_1605603606162" style="line-height: 28px;">
+                        <h4>Доставка</h4>
+                        c&nbsp<span style="color: rgb(244 148 47); font-weight: 600">10:00</span>&nbspдо
+                        <span style="color: rgb(244 148 47); font-weight: 600">00:00</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+<!-- Header Section End -->
+
+<!-- Content-->
+{% block content %}
+{% endblock content %}
+<!-- Content end -->
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <div class="footer__text">
+                    <div class="footer__social">
+                        <a href="#"> <i class="fa fa-vk" aria-hidden="true"></i></a>
+
+                    </div>
+                    <br>
+                    <p>Мы рады приветствовать Вас на сайте кафе "Лесная Поляна".<br>
+                        В нашем меню вы найдете блюда европейской и национальной
+                        кухни.<br>
+                        В нашем кафе вы сможете провести замечательно время в кругу друзей и близких.<br>
+                        Спасибо, что выбрали нас! Будем рады видеть Вас в нашем уютном кафе "Лесная Поляна"!</p>
+
+                </div>
+                <div class="footer__copyright">
+                    <p>
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        кафе "Лесная Поляна"
+                        Все права защищены
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer end -->
+
+<!-- Js Plugins -->
+<script src="{% static 'kafe/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'kafe/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'kafe/js/jquery.slicknav.js' %}"></script>
+<script src="{% static 'kafe/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'kafe/js/main.js' %}"></script>
+<script src="{% static 'kafe/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'kafe/js/sidebars.js' %}"></script>
+</body>
+
+</html>

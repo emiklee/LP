@@ -1,0 +1,47 @@
+{% extends 'kafe/base.html' %}
+{% load static %}
+{% block content %}
+<!-- Categories Section Begin -->
+<section class="categories categories-grid spad">
+    <div class="categories__post">
+        <div class="container">
+            <div class="categories__grid__post">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8">
+                        <div class="breadcrumb__text" style="text-align: inherit;">
+                            <h2>Доставка и оплата</h2>
+                            <div class="breadcrumb__option">
+                                <a href="{% url 'home' %}">Главная</a>
+                                <span>Доставка</span>
+                            </div><br>
+                            <h5 style="font-weight: bold">Доставка</h5>
+                            <p>Мы предлагаем следующие варианты доставки:</p>
+
+                                <p>Самовывоз: Вы можете забрать свой заказ сами в нашем кафе по адресу: УР, г.Сарапул,
+                                    ул.Горького 89
+                                </p>
+                                <p>Курьерская доставка: Мы осуществляем курьерскую доставку заказов в пределах города.
+                                    Минимальная сумма заказа от 1500 рублей.
+                                </p>
+                                <p>Время доставки занимает от 40 до 60 минут</p>
+
+                            <br>
+                            <h5 style="font-weight: bold">Оплата</h5>
+                            <p>Мы принимаем следующие виды оплаты:</p>
+
+                                <p>Наличными: Вы можете оплатить заказ наличными при получении курьерской доставки или
+                                    самостоятельно забрать заказ в кафе.</p>
+                                <p>Банковской картой: Вы можете оплатить заказ банковской картой непосредственно в кафе
+                                    или с помощью перевода Сбербанк Онлайн курьеру при получении заказа.</p>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- Categories Section End -->
+{% endblock content %}

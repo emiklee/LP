@@ -1,0 +1,50 @@
+{% extends 'kafe/base.html' %}
+{% load static %}
+{% block content %}
+   <!-- Contact Section Begin -->
+    <section class="contact spad">
+        <div class="container">
+            <div class="contact__text">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumb__text">
+                            <h2>Контакты</h2>
+                            <div class="breadcrumb__option">
+                                <a href="{% url 'home' %}">Главная</a>
+                                <span>Контакты</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-6">
+                        <div class="contact__widget">
+                            <ul>
+                                <li>
+                                    <i class="fa fa-map-marker"></i>
+                                    <span>TestText </span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-mobile"></i>
+                                    <span>TestText</span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-envelope-o"></i>
+                                    <span>TestText</span>
+                                </li>
+                            </ul>
+
+                        </div>
+                           <div class="contact__map">
+                            <iframe src="TestText" width="500" height="400" frameborder="0">
+                              </iframe>
+                            </iframe>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+{% endblock content %}

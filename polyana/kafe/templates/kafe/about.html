@@ -1,0 +1,55 @@
+{% extends 'kafe/base.html' %}
+{% load static %}
+{% block content %}
+<!-- About Section Begin -->
+<section class="about spad">
+    <div class="container">
+        <div class="about__text">
+            <div class="row">
+                <div class="col-lg-12" style="height:85px">
+                    <div class="breadcrumb__text">
+                        <h2>О нас</h2>
+                        <div class="breadcrumb__option">
+                            <a href="{% url 'home' %}">Главная</a>
+                            <span>О нас</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6" >
+                    <div class="about__pic__item__large">
+                        <img src="{% static 'kafe/images/about/about-2.jpeg' %}" alt="">
+                    </div>
+                    <div class="about__pic">
+                        <div class="about__pic__item">
+                            <img src="{% static 'kafe/images/about/about-3.jpeg' %}" alt="">
+                        </div>
+                        <div class="about__pic__item">
+                            <img src="{% static 'kafe/images/about/about-1.jpeg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about__right__text">
+                        <h2>Добро пожаловать!!!</h2>
+                        <p>Кафе "Лесная Поляна" - это уютное место в окружении природы, где вы можете провести время в
+                            приятной
+                            атмосфере, насладиться природой и попробовать вкуснейшие шашлыки, приготовленные настоящими
+                            профессионалами.<br>
+                            Наша кухня предлагает широкий выбор мясных блюд, включая самые известные и популярные
+                            рецепты шашлыка из говядины, свинины и баранины. Кроме того, мы также предлагаем блюда из
+                            рыбы, овощей и морепродуктов, которые приготовлены в соответствии с лучшими рецептами.
+                            Мы используем только свежие и качественные продукты, чтобы обеспечить вам идеальный вкус и
+                            запах. В дополнение к этому, мы также предлагаем широкий выбор напитков, включая алкогольные
+                            и безалкогольные напитки, чтобы удовлетворить все ваши потребности.<br>
+                            В "Лесной Поляне" мы приглашаем всех насладиться прекрасным вкусом еды, вдохновляющей
+                            атмосферой и красотой природы вокруг нас. Мы всегда ждём вас!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Section End -->
+{% endblock content %}

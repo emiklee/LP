@@ -1,0 +1,46 @@
+{% extends 'kafe/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="about__text">
+        <div class="row">
+            <div class="col-lg-12" style="height:85px">
+                <div class="breadcrumb__text">
+                    {% if category_selected == 0 %}
+                    <h2>Все</h2>
+                    {% endif %}
+                    {% for c in cats %}
+                    {% if c.pk == category_selected %}
+                    <h2>{{c.name}}</h2>
+                    {% endif %}
+                    {% endfor %}
+                    <div class="breadcrumb__option">
+                        <a href="{% url 'home' %}">Главная</a>
+                        <span>Меню</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+        {% for p in products %}
+        <div class="col">
+            <div class="card h-100">
+                {% if p.image %}
+                <img src="{{p.image.url}}" class="card-img-top" alt="...">
+                {% endif %}
+                <div class="card-body">
+                    <h4 class="card-title">{{p.name}}</h4>
+                    <p class="card-text">{{p.description}}</p>
+                    <div class="products-price">{{p.price}}р</div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
